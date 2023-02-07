@@ -1,1 +1,41 @@
-print('Hello World')
+#завдання 1
+a = 60
+b = 60
+print(f'{a}*{b}={a*b}')
+#завдання 2
+seconds_per_hour = 3600
+#завдання 3
+c = 24
+print(f'{c}*{seconds_per_hour}={c*seconds_per_hour}')
+#завдання 4
+seconds_per_day = 86400
+#завдання 5
+A = seconds_per_day/seconds_per_hour
+print(A)
+#завдання 6
+B = seconds_per_day//seconds_per_hour
+print(B)
+#завдання 7
+print(10+2)
+print(14-2)
+print(4*3)
+print(24//2)
+#завдання 8
+my_number = 17
+print(my_number)
+#завдання 9
+name = 'Mary Blossom'
+print(name.upper())
+print(name.lower())
+print(name.swapcase())
+
+#задача 1
+language = 'I had a cup of tea today'
+print(language.replace('tea', 'coffee'))
+#задача 2
+Name = 'Adam'
+print(f'Hi, {Name}, how are you?')
+#задача 3
+famous_person = 'Albert Einstein'
+message = f'{famous_person} once said, "A person who never made a mistake never tried anything new."'
+print(message)
