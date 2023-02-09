@@ -46,3 +46,15 @@ print(str.lstrip('-'))
 print(str.rstrip('-'))
 #задача 5
 print('Yana Iliuk\nUkraine\nChernivtsi')
+#задача 6
+meters = 1
+inches = 39.3700787
+foot = 3.3333333333
+miles = 0.00062137119609836
+print('{0:.2f} {1:.2f} {2:.2f}'.format(inches, foot, miles))
+#задача 7
+holidays_days = 28
+holidays_hours = 24*holidays_days
+holidays_minutes = 60*holidays_hours
+holidays_seconds = 60*holidays_minutes
+print('{:<10} {:<10} {:<10}'.format(holidays_hours, holidays_minutes, holidays_seconds))
