@@ -39,3 +39,10 @@ print(f'Hi, {Name}, how are you?')
 famous_person = 'Albert Einstein'
 message = f'{famous_person} once said, "A person who never made a mistake never tried anything new."'
 print(message)
+#задача 4
+str = "---John Green---"
+print(str.strip('-'))
+print(str.lstrip('-'))
+print(str.rstrip('-'))
+#задача 5
+print('Yana Iliuk\nUkraine\nChernivtsi')
