@@ -34,20 +34,6 @@ hardware = ('CPU', 'case', 'monitor')
 hardware_list = list(hardware)
 hardware_list[0] = 'Central Processing Unit'
 
-# A  return only even indexed elements
-nums = [1,2,3,4,5]
-print(nums[0::2])
-
-# B  return even elements
-nums1 = [1,2,2,3,3,3,4]
-even_nums = []
-for num in nums1:
-    if num %2 == 0:
-        even_nums.append(num)
-print(even_nums)
-hardware = tuple(hardware_list)
-print(hardware)
-
 # Задачі
 # 1
 languages_list = ['Ukrainian', 'French', 'Bulgarian', 'Norwegian', 'Latvian']
@@ -94,3 +80,15 @@ print(sports.index('skiing'))
 sports.clear()
 
 print(sports)
+
+# A  return only even indexed elements
+nums = [1,2,3,4,5]
+print(nums[0::2])
+
+# B  return even elements
+nums1 = [1,2,2,3,3,3,4]
+even_nums = []
+for num in nums1:
+    if num %2 == 0:
+        even_nums.append(num)
+print(even_nums)
