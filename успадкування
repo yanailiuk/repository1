@@ -1,0 +1,149 @@
+# Створити клас Vehicle з властивостями make, model, year та weight, та методом start_engine().
+#
+# Створити підклас Car, який є нащадком Vehicle, з додатковими властивостями num_doors та num_passengers, та метод drive().
+# Перевизначити метод start_engine(), щоб виводити "The car's engine is starting...".
+#
+# Створити підклас Truck, який є нащадком Vehicle, з додатковими властивостями cargo_capacity та towing_capacity, та метод haul().
+# Перевизначити метод start_engine(), щоб виводити "The truck's engine is starting...".
+#
+# Створити підклас Motorcycle, який є нащадком Vehicle, з додатковими властивостями num_wheels та has_sidecar, та метод ride().
+# Перевизначити метод start_engine(), щоб виводити "The motorcycle's engine is starting...".
+#
+# Створити екземпляр об'єкта з кожного підкласу та викликати їх відповідні методи. Продемонструвати використання поліморфізму,
+# викликаючи метод start_engine() на кожному об'єкті.
+#
+
+
+class Vehicle:
+
+    @property
+    def make(self):
+        return self.__make
+
+    @make.setter
+    def make(self, value):
+        self.__make = value
+
+    @property
+    def model(self):
+        return self.__model
+
+    @model.setter
+    def model(self, value):
+        self.__model = value
+
+    @property
+    def year(self):
+        return self.__year
+
+    @year.setter
+    def year(self, value):
+        self.__year = value
+
+    @property
+    def weight(self):
+        return self.__weight
+
+    @weight.setter
+    def weight(self, value):
+        self.__weight = value if value > 0 else 0
+
+    def start_engine(self):
+        pass
+
+
+class Car(Vehicle):
+
+    @property
+    def num_doors(self):
+        return self.__num_doors
+
+    @num_doors.setter
+    def num_doors(self, value):
+        self.__num_doors = value
+
+    @property
+    def num_passengers(self):
+        return self.__num_passengers
+
+    @num_passengers.setter
+    def num_passengers(self, value):
+        self.__num_passengers = value
+
+    def drive(self):
+        pass
+
+    def start_engine(self):
+        return "The car's engine is starting..."
+
+
+class Truck(Vehicle):
+
+    @property
+    def cargo_capacity(self):
+        return self.__cargo_capacity
+
+    @cargo_capacity.setter
+    def cargo_capacity(self, value):
+        self.__cargo_capacity = value
+
+    @property
+    def towing_capacity(self):
+        return self.__towing_capacity
+
+    @towing_capacity.setter
+    def towing_capacity(self, value):
+        self.__towing_capacity = value
+
+    def haul(self):
+        pass
+
+    def start_engine(self):
+        return "The truck's engine is starting..."
+
+class Motorcycle(Vehicle):
+
+    @property
+    def num_wheels(self):
+        return self.__num_wheels
+
+    @num_wheels.setter
+    def num_wheels(self, value):
+        self.__num_wheels = value
+
+    @property
+    def has_sidecar(self):
+        return self.__has_sidecar
+
+    @has_sidecar.setter
+    def has_sidecar(self, value):
+        self.__has_sidecar = value
+
+    def ride(self):
+        pass
+
+    def start_engine(self):
+        return "The motorcycle's engine is starting..."
+
+
+car = Car()
+print(car.start_engine())
+
+truck = Truck()
+print(truck.start_engine())
+
+motorcycle = Motorcycle()
+print(motorcycle.start_engine())
+
+
+
+
+
+
+
+
+
+
+
+
+
