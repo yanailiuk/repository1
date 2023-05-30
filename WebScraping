@@ -1,0 +1,65 @@
+import requests
+
+
+url = 'https://python.org/'
+response = requests.get(url)
+print('Сторінка доступна на сервері') if response.status_code == 200 else print('Сторінка недоступна на сервері')
+
+url = 'https://en.wikipedia.org/robots.txt'
+response = requests.get(url)
+if response.status_code == 200:
+    print(response.text)
+
+url = 'https://catalog.data.gov/api/3/action/package_search?q=*:*'
+response = requests.get(url)
+if response.status_code == 200:
+    data = response.json()
+    count = data['result']['count']
+    print(f'Кількість наборів даних на data.gov: {count}')
+
+url = 'https://catalog.data.gov/api/3/action/package_search?sort=metadata_created%20desc&rows=1'
+# sort сортує набори даних за датою створення у зворотному порядку (від останнього до першого)
+# rows щоб отримати лише один набір даних
+response = requests.get(url)
+if response.status_code == 200:
+    data = response.json()
+    name = data['result']['results'][0]['title']
+    print(name)
+
+
+url = "https://api.covid19api.com/summary"
+response = requests.get(url)
+if response.status_code == 200:
+    data = response.json()
+    print("Дані на:", data["Date"])
+    print("World")
+    print("Випадки:", data["Global"]["TotalConfirmed"])
+    print("Смерті:", data["Global"]["TotalDeaths"])
+    print("Одужання:", data["Global"]["TotalRecovered"])
+
+    country = "Ukraine"
+    for country_data in data["Countries"]:
+        if country_data["Country"] == country:
+            print(f"{country}")
+            print("Випадки:", country_data["TotalConfirmed"])
+            print("Смерті:", country_data["TotalDeaths"])
+            print("Одужання:", country_data["TotalRecovered"])
+            break
+
+
+api_key = "Em7KVKIDvPtg4oRUkrpceuER0qIUQf9B"
+origin = "Чернівці"
+destination = "Львів"
+url = f"http://www.mapquestapi.com/directions/v2/route?key={api_key}&from={origin}&to={destination}"
+response = requests.get(url)
+
+if response.status_code == 200:
+    data = response.json()
+    distance = data["route"]["distance"]
+    duration = data["route"]["formattedTime"]
+    print(f"Відстань між {origin} та {destination}: {distance:.2f} км")
+    print(f"Час подорожі: {duration}")
+
+
+
+
