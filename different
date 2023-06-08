@@ -1,0 +1,419 @@
+a = ("John", "Charles", "Mike")
+b = ("Jenny", "Christy", "Monica")
+x = zip(a, b)
+# use the tuple() function to display a readable version of the result:
+print(tuple(x))
+print(x)
+
+# The all() function returns True if all items in an iterable are true, otherwise it returns False.
+# If the iterable object is empty, the all() function also returns True.
+mylist = [0, 1, 1]
+x = all(mylist)
+print(x)
+# Returns False because 0 is the same as False
+
+myset = {0, 1, 0}
+x = all(myset)
+print(x)
+
+mydict = {0: "Apple", 1: "Orange"}
+x = all(mydict)
+print(x)
+# Returns False because the first key is false.
+# For dictionaries the all() function checks the keys, not the values.
+
+
+# The any() function returns True if any item in an iterable are true, otherwise it returns False.
+# If the iterable object is empty, the any() function will return False.
+mylist = [False, True, False]
+x = any(mylist)
+print(x)
+
+mydict = {0: "Apple", 1: "Orange"}
+x = any(mydict)
+print(x)
+# Returns True because the second key is True.
+# For dictionaries the any() function checks the keys
+
+# The ascii() function returns a readable version of any object (Strings, Tuples, Lists, etc).
+x = ascii("My name is Ståle")
+print(x)
+
+# The bin() function returns the binary version of a specified integer.
+x = bin(36)
+print(x)
+# The result will always have the prefix 0b
+
+
+# The bool() function returns the boolean value of a specified object.
+# The object will always return True, unless:
+# The object is empty, like [], (), {}
+# The object is False
+# The object is 0
+# The object is None
+x = bool(1)
+print(x)
+
+# The bytearray() function returns a bytearray object.
+# It can convert objects into bytearray objects, or create empty bytearray object of the specified size.
+# Syntax:
+# bytearray(x, encoding, error)
+x = bytearray(4)
+print(x)
+
+# The bytes() function returns a bytes object.
+# It can convert objects into bytes objects, or create empty bytes object of the specified size.
+# The difference between bytes() and bytearray() is that bytes() returns an object that cannot be modified,
+# and bytearray() returns an object that can be modified.
+# Syntax:
+# bytes(x, encoding, error)
+x = bytes(4)
+print(x)
+
+
+# The callable() function returns True if the specified object is callable, otherwise it returns False.
+def x():
+    a = 5
+
+
+print(callable(x))
+
+x = 5
+print(callable(x))
+
+# The chr() function returns the character that represents the specified unicode.
+x = chr(100)
+print(x)
+
+# The compile() function returns the specified source as a code object, ready to be executed.
+# Syntax
+# compile(source, filename, mode, flag, dont_inherit, optimize)
+x = compile('print(55)', 'test', 'eval')
+exec(x)
+
+# The eval() function evaluates the specified expression, if the expression is a legal Python statement, it will be executed.
+# Syntax
+# eval(expression, globals, locals)
+x = 'print(55)'
+eval(x)
+
+# The exec() function executes the specified Python code.
+# The exec() function accepts large blocks of code, unlike the eval() function which only accepts a single expression
+# Syntax
+# exec(object, globals, locals)
+x = 'name = "John"\nprint(name)'
+exec(x)
+
+# The filter() function returns an iterator where the items are filtered through a function to test if the item is accepted or not.
+# Syntax
+# filter(function, iterable)
+# Filter the array, and return a new array with only the values equal to or above 18:
+ages = [5, 12, 17, 18, 24, 32]
+
+
+def myFunc(x):
+    if x < 18:
+        return False
+    else:
+        return True
+
+
+adults = filter(myFunc, ages)
+for x in adults:
+    print(x)
+
+
+# The issubclass() function returns True if the specified object is a subclass of the specified object, otherwise False.
+# Syntax
+# issubclass(object, subclass)
+class myAge:
+    age = 36
+
+
+class myObj(myAge):
+    name = "John"
+    age = myAge
+
+
+x = issubclass(myObj, myAge)
+
+print(x)
+
+# A lambda function is a small anonymous function.
+# A lambda function can take any number of arguments, but can only have one expression.
+# Syntax
+# lambda arguments : expression
+# The expression is executed and the result is returned:
+# Example
+# Add 10 to argument a, and return the result:
+
+x = lambda a: a + 10
+print(x(5))
+
+x = lambda a, b: a * b
+print(x(5, 6))
+
+x = lambda a, b, c: a + b + c
+print(x(5, 6, 2))
+
+
+# The power of lambda is better shown when you use them as an anonymous function inside another function.
+# Use lambda functions when an anonymous function is required for a short period of time.
+# A lambda function can take any number of arguments, but can only have one expression.
+# Syntax
+# lambda arguments : expression
+# lambda [параметри] : інструкції
+def myfunc(n):
+    return lambda a: a * n
+
+
+mydoubler = myfunc(2)
+print(mydoubler(11))
+
+
+def myfunc(n):
+    return lambda a: a * n
+
+
+mydoubler = myfunc(2)
+mytripler = myfunc(3)
+
+print(mydoubler(11))
+print(mytripler(11))
+
+my_list = [1, 4, 5, 6, 7, 8, 8, 8, 6, 5, 4, 6, 7]
+# double_list_1 = [el*2 for el in my_list]
+# print(double_list_1)
+
+double_list_2 = list(map(lambda x: x * 2, my_list))
+print(double_list_2)
+
+ages = [11, 22, 33, 44, 55, 66, 77, 11, 16]
+ages_filter_lambda = list(filter(lambda x: x >= 16, ages))
+print(ages_filter_lambda)
+
+my_list = ["Hello", "Python"]
+print("-".join(my_list))
+
+aList = [4, 8, 12, 16]
+aList[1:4] = [20, 24, 28]
+print(aList)
+
+sampleList = [10, 20, 30, 40]
+del sampleList[0:6]
+print(sampleList)
+
+l = [None] * 10
+print(len(l))
+
+aList = ['a', 'b', 'c', 'd']
+newList = aList.copy()
+newList1 = list(aList)
+
+sampleList = [10, 20, 30, 40, 50]
+sampleList.pop()  # deletes the last el
+print(sampleList)
+
+sampleList.pop(2)  # deletes 2d el
+print(sampleList)
+
+set1 = {"Yellow", "Orange", "Black"}
+set2 = {"Orange", "Blue", "Pink"}
+set3 = set2.difference(set1)
+print(set3)
+
+# The union() method returns a new set with all items from both sets by removing duplicates
+
+sampleSet = {"Yellow", "Orange", "Black"}
+sampleSet.discard("Blue")
+print(sampleSet)
+# Explanation:
+# If the item to remove does not exist in the set, the discard() method will NOT raise an error.
+# If we use remove() method to perform the same operation, we will receive a keyError.
+
+# We cannot access items in a set by referring to an index
+# because the ‘set’ object does support indexing (the set is unordered).
+# if you try to access items using the index, you will get TypeError: ‘set’ object does not support indexing.
+
+sampleSet = {"Yellow", "Orange", "Black", 'a'}
+sampleSet1 = {"Yellow", "Orange", "Black", 'b'}
+set11 = sampleSet1.symmetric_difference(sampleSet)
+print(set11)
+sampleSet.update(["Blue", "Green", "Red"])
+print(sampleSet)
+
+# all the correct ways to copy two sets
+# set2 = set1.copy()
+# set2 = set(set1)
+# set2.update(set1)
+
+# It is true that the set itself is changeable (mutable),
+# but it cannot contain changeable objects such as list and dictionary.
+# Python set can contain unchangeable objects like number, string, tuple etc
+
+#  The isdisjoint() method returns True if none of the items are present in both sets, otherwise, it returns False.
+
+# The remove() and discard() method removes the specified item from a set.
+sampleSet = {"Yellow", "Orange", "Black"}
+sampleSet.discard("Orange")
+sampleSet.remove('Black')
+print(sampleSet)
+
+student = {
+    "name": "Emma",
+    "class": 9,
+    "marks": 75
+}
+m = student.get('marks')
+student.pop("marks")
+student.clear()
+
+# correct ways to copy a dictionary in Python
+# dict2 = dict1.copy()
+# dict2 = dict(dict1)
+
+dict1 = {"name": "Mike", "salary": 8000}
+temp = dict1.get("age")
+print(temp)
+
+student = {a: {'name': 'Emma', 'age': '27', 'sex': 'Female'},
+           b: {'name': 'Mike', 'age': '22', 'sex': 'Male'}}
+print(student[a]["age"])
+
+# Dictionary keys must be immutable. It means you can use strings, numbers, or tuples as dictionary keys.
+# And you can’t use any mutable object as the key, such as a list.
+
+sampleDict = dict([
+    ('first', 1),
+    ('second', 2),
+    ('third', 3)
+])
+print(sampleDict)
+
+sampleDict = {
+    "class": {
+        "student": {
+            "name": "Mike",
+            "marks": {
+                "physics": 70,
+                "history": 80
+            }
+        }
+    }
+}
+print(sampleDict['class']['student']['marks']['history'])
+
+dict1 = {"key1": 1, "key2": 2}
+dict2 = {"key2": 2, "key1": 1}
+print(dict1 == dict2)
+
+sampleDict = {}
+sampleDict1 = dict()
+
+# A tuple maintains the order of items
+# A tuple is ordered
+# We cannot change the tuple once created
+
+# A tuple is immutable. Once a tuple is created, you cannot remove its items,
+# but you can delete the tuple completely. If you try to remove the item from the tuple,
+# you will receive an AttributeError: 'tuple' object has no attribute 'pop'.
+
+# If you try to change its value, you will receive a  TypeError: 'tuple' object does not support item assignment
+
+# TypeError: '>' not supported between instances of ‘str’ and ‘int’
+
+bTuple = ("Orange",)
+print(type(bTuple))
+
+aTuple = ("Orange", [10, 20, 30], (5, 15, 25))
+print(aTuple[1][1])
+
+my_tuple = "Yellow", 20, "Red"
+print(my_tuple)
+
+# We cannot remove the items from the tuple
+# We cannot update items of the tuple.
+
+# tuple unpacking
+aTuple = "Yellow", 20, "Red"
+a, b, c = aTuple
+print(a)
+
+txt = ",,,,,rrttgg.....banana....rrr"
+x = txt.strip(",.grt")
+print(x)
+
+txt = "hello, my name is Peter, I am 26 years old"
+x = txt.split(", ")
+print(x)
+
+country = 'Ukraine'
+for char in country:
+    print(char, end='-')
+
+str1 = '1'
+str2 = 'z'
+str3 = 'A'
+print('\n')
+print(str1 < str2 > str3)
+print(str1 < str3)
+
+str1 = 'igor'
+str2 = 'Igor'
+print(str1.lower() == str2.lower())
+print(str1.upper() == str2.upper())
+
+print(ord('I'))  # returns int representing the unicode character
+
+# lstrip() - видаляє всі пробіли на початку рядка
+# rstrip() - видаляє всі пробіли в кінці рядка
+# strip() - видаляє всі
+# пробіли на початку і в кінці рядка
+# ljust(width) - якщо довжина рядка менша за width, то справа до рядка додаються
+# пробіли, щоб довжина рядка стала дорівнювати width
+# rjust(width) - якщо довжина рядка менша за width, то зліва до
+# рядка додаються пробіли, щоб довжина рядка стала дорівнювати width
+# center(width) - якщо довжина рядка менша за
+# width, то зліва та справа до рядка рівномірно додаються пробіли, щоб довжина рядка стала дорівнювати width
+string = "Hello Ukraine"
+print(string.ljust(20))
+print(string.rjust(20))
+print(string.center(20))
+
+# Перевірка рядків
+# isalpha() - повертає True, якщо рядок складається тільки з символів абетки
+# isdigit() - повертає True, якщо всі символи рядка - цифри
+# isnumeric() - повертає True, якщо рядок може бути числом
+# islower() - повертає True, якщо всі символи рядка в нижньому регістрі
+# isupper() - повертає True, якщо всі символи рядка в верхньому регістрі
+
+number = '111123'
+if number.isnumeric():
+    print(int(number) * 5)
+
+# startswith(str) - повертає True, якщо рядок починається з підрядка str
+# endswith(str) - повертає True, якщо рядок закінчується на підрядок str
+
+string = "Hello Ukraine"
+print(string.find('Ukr'))
+print(string.find('Ukr', 8))
+print(string.find('Ukr', 5, 9))
+
+string = 'London is a  capital of  Great  Britain. London is great city.'
+words = string.split()
+print(words)
+words = string.split(' ')
+print(words)
+words = string.replace('.', '').replace(',', '').split()
+print(words)
+
+s = 0
+d = 1
+for number in range(1, 6):
+    s = s + number
+    d = d * number
+print(s)
+print(d)
+
+students = ['Bob', 'Sam'] * 3
+print(students)
