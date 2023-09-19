@@ -1,0 +1,155 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+
+        //1
+        Console.WriteLine("Введіть ціле число: ");
+        int num = int.Parse(Console.ReadLine());
+        if (num == 0)
+        {
+            Console.WriteLine("Дорівнює нулю");
+        }
+        else if (num > 0)
+        {
+            Console.WriteLine("Число додатнє");
+        }
+        else
+        {
+            Console.WriteLine("Число від'ємне");
+        }
+
+
+        //2
+        
+        Console.WriteLine("Введіть рік: ");
+        int year = int.Parse(Console.ReadLine());
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+        {
+            Console.WriteLine("Високосний рік");
+        }
+        else
+        {
+            Console.WriteLine("Невисокосний рік");
+        }
+        
+        //3
+        
+        Console.Write("Введіть річний дохід: ");
+        double income = double.Parse(Console.ReadLine());
+        if (income <= 10000)
+        {
+            Console.WriteLine($"Податок складає " + (income*0.1) );
+        }
+        else if (income > 10000 && income < 50000)
+        {
+            Console.WriteLine($"Податок складає " + (income * 0.15));
+        }
+        else
+        {
+            Console.WriteLine($"Податок складає " + (income * 0.20));
+        }
+        
+        //4
+        
+        Console.WriteLine("Введіть символ: ");
+        char inputChar = Console.ReadKey().KeyChar;
+        if (inputChar == 'a' |  inputChar == 'e' | inputChar == 'i' | inputChar == 'o' | inputChar == 'u')
+        {
+            Console.WriteLine("\nГолосна");
+        }
+        else
+        {
+            Console.WriteLine("\nПриголосна");
+        }
+        
+        
+        //5
+        Console.WriteLine("Введіть перше число: ");
+        int number1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Введіть друге число: ");
+        int number2 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Введіть третє число: ");
+        int number3 = int.Parse(Console.ReadLine());
+
+        int max = FindMax(number1, number2, number3);
+        Console.WriteLine($"Найбільше число: {max}");
+
+        static int FindMax(int a, int b, int c)
+        {
+            int max = a;
+            if (b > max)
+            {
+                max = b;
+            }
+            if (c > max)
+            {
+                max = c;
+            }
+            return max;
+        }
+        
+        
+        //6
+        Console.WriteLine("Введіть вік: ");
+        int age = int.Parse(Console.ReadLine());
+        if (age >= 12 & age <= 18)
+        {
+            Console.WriteLine("Підліток");
+        }
+        else
+        {
+            Console.WriteLine("Не підліток");
+        }
+        
+        //7
+        
+        Console.WriteLine("Введіть число: ");
+        int numb = int.Parse(Console.ReadLine());
+        if (numb % 3 == 0)
+        {
+            Console.WriteLine("Ділиться на 3");
+        }
+        if (numb % 3 != 0)
+        {
+            Console.WriteLine("Не ділиться на 3");
+        }
+        if (numb % 2 == 0)
+        {
+            Console.WriteLine("Парне");
+        }
+        if (numb % 2 != 0)
+        {
+            Console.WriteLine("Непарне");
+        }
+        
+
+        //8   Напишіть програму, яка визначає, яка з введених користувачем сторін трикутника (a, b, c) є найдовшою.
+        Console.Write("a = ");
+        int number1_ = int.Parse(Console.ReadLine());
+        Console.Write("b = ");
+        int number2_ = int.Parse(Console.ReadLine());
+        Console.Write("c = ");
+        int number3_ = int.Parse(Console.ReadLine());
+
+        int maxSide = Max(number1_, number2_, number3_);
+        Console.WriteLine($"Найбільша сторона: {maxSide}");
+
+        static int Max(int a, int b, int c)
+        {
+            int max = a;
+            if (b > max)
+            {
+                max = b;
+            }
+            if (c > max)
+            {
+                max = c;
+            }
+            return max;
+        }
+
+    }
+}
