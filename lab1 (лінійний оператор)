@@ -1,0 +1,151 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+
+        //1 Ввести два цілих числа та перевірити чи вони можуть бути днем та місяцем.
+
+        Console.WriteLine("Введіть перше ціле число (місяць): ");
+        int month = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Введіть друге ціле число (день): ");
+        int day = Convert.ToInt32(Console.ReadLine());
+        if (month >= 1 && month <= 12 && day >= 1 && day <= 31)
+        {
+            Console.WriteLine("Ці числа можуть бути днем та місяцем.");
+        }
+        else
+        {
+            Console.WriteLine("Ці числа не можуть бути днем та місяцем.");
+        }
+
+        //2  Ввести дійсне  число num та отримати
+        //два перших знаки після коми та результат вивести у вигляді суми цих чисел. Наприклад: 3.456 -> 4+5=9
+        
+        Console.WriteLine("Введіть дійсне число: ");
+        double num = double.Parse(Console.ReadLine());
+        int decimalPart = (int)((num - Math.Floor(num)) * 100);
+
+        int digit1 = decimalPart / 10;
+        int digit2 = decimalPart % 10;
+
+        int sum = digit1 + digit2;
+
+        Console.WriteLine($"{digit1} + {digit2} = {sum}");
+        
+        //3
+    
+        Console.WriteLine("Яка зараз година? (Ввести ціле число, що відображає час дня у годинах)");
+        int hour = int.Parse(Console.ReadLine());
+        if (hour >= 6 & hour <= 11)
+        {
+            Console.WriteLine("Доброго ранку!");
+        }
+        else if (hour >= 12 & hour <=17)
+        {
+            Console.WriteLine("Добрий день!");
+        }
+        else if (hour >= 18 & hour <= 22)
+        {
+            Console.WriteLine("Добрий вечір!");
+        }
+        else
+        {
+            Console.WriteLine("Доброї ночі!");
+        }
+        
+        //4  Зчитати 3 змінних типу integer та вивести max та min з них.
+        
+        Console.WriteLine("Введiть перше число: ");
+        int number1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Введіть друге число: ");
+        int number2 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Введіть третє число: ");
+        int number3 = int.Parse(Console.ReadLine());
+
+        int max = FindMax(number1, number2, number3);
+        Console.WriteLine($"Найбільше число: {max}");
+
+        static int FindMax(int a, int b, int c)
+        {
+            int max = a;
+            if (b > max)
+            {
+                max = b;
+            }
+            if (c > max)
+            {
+                max = c;
+            }
+            return max;
+        }
+
+        int min = FindMin(number1, number2, number3);
+        Console.WriteLine($"Найменше: {min}");
+
+        static int FindMin(int a, int b, int c)
+        {
+            int min = a;
+            if (b < min) 
+            {
+                min = b;
+            }
+            if (c < min)
+            {
+                min = c;
+            }
+            return min;
+        }
+        
+        //5  Створіть програму, яка обчислює площу прямокутника з використанням дійсних чисел
+        //(тип даних double). Користувач має ввести довжину і ширину прямокутника.
+
+        
+        Console.WriteLine("Введіть довжину: ");
+        double length = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Введіть ширину: ");
+        double width = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine($"Площа дорівнює {length*width}");
+        
+
+        //6  Реалізуйте програму, яка перевіряє, чи введене число є парним чи непарним. Виведіть відповідне повідомлення.
+        
+        Console.WriteLine("Введіть число: ");
+        int number = int.Parse(Console.ReadLine());
+        if (number % 2 == 0)
+        {
+            Console.WriteLine("Парне");
+        }
+        if (number % 2 != 0)
+        {
+            Console.WriteLine("Непарне");
+        }
+        
+        
+        //7  Створіть програму, яка приймає температуру в градусах Цельсія та перетворює її в градуси Фаренгейта за допомогою
+        // формули C = (F - 32) *5 / 9, де C - градуси Цельсія, F - градуси Фаренгейта.   F = (C * 9 / 5) + 32
+        Console.WriteLine("Введіть температуру в градусах Цельсія: ");
+        double C = double.Parse(Console.ReadLine());
+        double F = (C * 9 / 5) + 32;
+        Console.WriteLine($"У градусах Фаренгейта це {F}");
+        
+
+        //8  Напишіть програму, яка обчислює суму перших n натуральних чисел, де n вводить користувач.
+        
+        Console.WriteLine("Введіть число: ");
+        int n = Convert.ToInt32(Console.ReadLine()); 
+        int summ = 0;
+        for (int i = 1; i <= n; i++) 
+        {
+            summ += i;
+        }
+        Console.WriteLine($"Сума перших {n} натуральних чисел дорівнює {summ}");
+        
+    }
+
+}
+
+  
