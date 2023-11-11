@@ -1,0 +1,80 @@
+<?php
+
+
+// 1
+function invert(array $numbers): array {
+    return array_map(function($number) {
+        return -$number;
+    }, $numbers);
+}
+
+print_r(invert([1,2,3,4,5]));     
+print_r(invert([1,-2,3,-4,5]));  
+print_r(invert([]));   
+
+
+
+
+//2
+function arrayToCsv(array $inputArray): string {
+    $csvRows = array_map(function($row) {
+        return implode(',', $row);
+    }, $inputArray);
+
+    return implode("\n", $csvRows);
+}
+
+$inputArray = [
+    [0, 1, 2, 3, 4],
+    [10, 11, 12, 13, 14],
+    [20, 21, 22, 23, 24],
+    [30, 31, 32, 33, 34]
+];
+
+$outputCsv = arrayToCsv($inputArray);
+echo $outputCsv;
+
+
+
+
+//3
+function countPositivesSumNegatives(array $inputArray): array {
+    if (empty($inputArray)) {
+        return [];
+    }
+
+    $positivesCount = count(array_filter($inputArray, function($num) {
+        return $num > 0;
+    }));
+
+    $negativesSum = array_sum(array_filter($inputArray, function($num) {
+        return $num < 0;
+    }));
+
+    return [$positivesCount, $negativesSum];
+}
+
+$inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15];
+$result = countPositivesSumNegatives($inputArray);
+
+print_r($result);
+
+
+
+
+//4
+function calculateAverage(array $numbers): float {
+    if (empty($numbers)) {
+        return 0;
+    }
+
+    $sum = array_sum($numbers);
+    $count = count($numbers);
+
+    return $sum / $count;
+}
+
+$numbersList = [1, 2, 3, 4, 5];
+$average = calculateAverage($numbersList);
+
+echo "Average: $average";
