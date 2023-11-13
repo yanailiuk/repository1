@@ -1,0 +1,54 @@
+<?php
+// 1
+function remove_spaces($input_string) {
+    return str_replace(" ", "", $input_string);
+}
+
+$result1 = remove_spaces("8 j 8 mBliB8g imjB8B8 jl B\n");
+$result2 = remove_spaces("8 8 Bi fk8h B 8 BB8B B B B888 c hl8 BhB fd\n");
+$result3 = remove_spaces("8aaaaa dddd r ");
+
+echo $result1;  
+echo $result2;  
+echo $result3; 
+
+
+// 2
+function repeatString($n, $s) {
+    return str_repeat($s, $n);
+}
+
+$result1 = repeatString(6, "I");
+$result2 = repeatString(5, "Hello");
+
+echo $result1;  
+echo $result2;  
+
+
+// 3
+function greetName($name) {
+    $capitalizedName = ucfirst(strtolower($name));
+    return "Hello $capitalizedName!";
+}
+
+$result1 = greetName("riley");
+$result2 = greetName("JACK");
+
+echo $result1;  
+echo $result2; 
+
+
+// 4
+function reverseWords($inputString) {
+    $words = explode(" ", $inputString);
+    $reversedWords = array_map('strrev', $words);
+    return implode(" ", $reversedWords);
+}
+
+$result1 = reverseWords("This is an example!");
+$result2 = reverseWords("double spaces");
+
+echo $result1; 
+echo $result2; 
+
+?>
