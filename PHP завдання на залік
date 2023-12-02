@@ -1,0 +1,60 @@
+<?php
+
+$matrix = [];
+
+// Заповнення випадковими числами
+for ($i = 0; $i < 10; $i++) {
+    for ($j = 0; $j < 10; $j++) {
+        $matrix[$i][$j] = mt_rand(0, 10);
+    }
+}
+
+// сорт перший стовпець за спаданням
+array_multisort(array_column($matrix, 0), SORT_DESC, $matrix);
+
+// сорт останній рядок за зростанням
+sort($matrix[9]);
+
+// сума елементів першого рядка
+$sum_first_row = array_sum($matrix[0]);
+
+// Перевірка умови
+if ($sum_first_row < 50) {
+    // добуток елементів останнього стовпця
+    $product_last_column = 1;
+    for ($i = 0; $i < 10; $i++) {
+        $product_last_column *= $matrix[$i][9];
+    }
+    echo "Добуток елементів останнього стовпця: $product_last_column";
+} else {
+    // сума непарних елементів
+    $sum_odd_elements = 0;
+    foreach ($matrix as $row) {
+        foreach ($row as $element) {
+            if ($element % 2 !== 0) {
+                $sum_odd_elements += $element;
+            }
+        }
+    }
+    echo "Сума непарних елементів: $sum_odd_elements";
+}
+
+// добуток всіх елементів масиву
+$product_all_elements = 1;
+foreach ($matrix as $row) {
+    foreach ($row as $element) {
+        $product_all_elements *= $element;
+    }
+}
+
+echo "Добуток всіх елементів масиву: $product_all_elements";
+
+// Онов 2 стовпець
+foreach ($matrix as &$row) {
+    $row[1] = pow($row[1], 2) - $row[1];
+}
+
+// оновлений масив
+print_r($matrix);
+
+?>
